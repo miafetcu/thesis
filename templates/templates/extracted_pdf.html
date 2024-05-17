@@ -1,0 +1,85 @@
+
+<body>
+    <h1>Extracted Information</h1>
+    
+    <h2>Consumed kWh</h2>
+    <div>
+        <strong>Consumption:</strong>
+        <pre>{{ extracted_data['cons'] }}</pre>
+    </div>
+    
+    <div>
+        <strong>Initial</strong>
+        <pre id="initial-date">{{ extracted_data['init'] }}</pre>
+    </div>
+    <div>
+        <strong>Final</strong>
+        <pre id="final-date">{{ extracted_data['final'] }}</pre>
+    </div>
+    <div>
+        <strong>Monthly</strong>
+        <pre>{{ extracted_data['monthly_cons'] }}</pre>
+    </div>
+    <div>
+        <strong>Price</strong>
+        <pre>{{ extracted_data['price'] }}</pre>
+    </div>
+
+    <!-- Display the month name from monthList[1] -->
+    <div>
+        <strong>Second Month Name:</strong>
+        <p id="second-month-name"></p>
+    </div>
+
+    <script>
+        // Function to parse date in dd.mm.yy format and return Date object
+        function parseDate(dateStr) {
+            const parts = dateStr.split('.');
+            const day = parseInt(parts[0], 10);
+            const month = parseInt(parts[1], 10) - 1; // Months are 0-based in Date object
+            const year = 2000 + parseInt(parts[2], 10); // Assuming year is in yy format
+
+            return new Date(year, month, day);
+        }
+
+        // Function to generate list of months with month names between initial and final dates
+        function generateMonthList() {
+            // Get initial and final date from the HTML
+            const initialDateText = document.getElementById('initial-date').textContent.trim();
+            const finalDateText = document.getElementById('final-date').textContent.trim();
+
+            // Parse initialDate and finalDate strings into Date objects
+            const initialDate = parseDate(initialDateText);
+            const finalDate = parseDate(finalDateText);
+
+            // Array to store objects containing formatted month and month name
+            const monthsList = [];
+
+            // Loop through each month from initialDate to finalDate
+            let currentDate = new Date(initialDate);
+            while (currentDate <= finalDate) {
+                // Format the current month as 'YYYY-MM'
+                const formattedMonth = `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}`;
+                
+                // Get the month name
+                const monthName = currentDate.toLocaleString('en-US', { month: 'long' });
+
+                // Push object with formatted month and month name to monthsList
+                monthsList.push({ month: formattedMonth, monthName: monthName });
+
+                // Move to the next month
+                currentDate.setMonth(currentDate.getMonth() + 1);
+            }
+
+            return monthsList;
+        }
+
+        // Example usage: Output month list to console
+        const monthList = generateMonthList();
+        console.log(monthList);
+
+        // Display the month name from monthList[1] on the webpage
+        const secondMonthNameElement = document.getElementById('second-month-name');
+        secondMonthNameElement.textContent = monthList[1].monthName;
+    </script>
+</body>

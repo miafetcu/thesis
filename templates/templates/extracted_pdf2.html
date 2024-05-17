@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Solar Calculator</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="script.js"></script> -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <h1>Extracted PDF Content</h1>
+    
+    <div>
+        {% for text_content, bbox in extracted_text_with_bbox %}
+        <div style="border: 1px solid black; padding: 5px; margin-bottom: 5px;">
+            <p><strong>Text Content:</strong> {{ text_content }}</p>
+            <p><strong>Bounding Box (x0, y0, x1, y1):</strong> {{ bbox }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
