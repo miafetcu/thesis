@@ -57,11 +57,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['levels'] = $levels;
         $_SESSION['region'] = $region;
 
+        // Create the query string with the necessary parameters
+        $query_string = http_build_query([
+            'cons' => $cons,
+            'capc' => $capc,
+            'levels' => $levels,
+            'region' => $region
+        ]);
+
+        // Use the header function to redirect to calc2.php with the query string
+       
+
         // Determine which button was clicked
         if (isset($_POST['submit'])) {
-            echo "<script>window.location.href = 'calc2.php';</script>"; // Redirect to calc2.php
+             $redirect_url = "calc2.php?$query_string";
+            echo "<script>window.location.href = '$redirect_url';</script>"; // Redirect to calc3.php
         } elseif (isset($_POST['simulate'])) {
-            echo "<script>window.location.href = 'calc3.php';</script>"; // Redirect to calc3.php
+            $redirect_url = "calc3.php?$query_string";
+            echo "<script>window.location.href = '$redirect_url';</script>"; // Redirect to calc3.php
         }
         
         exit(); // Make sure to exit after redirection

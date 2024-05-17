@@ -31,6 +31,7 @@ $(document).ready(function() {
       current_fs.hide();
   });
 
+
  // Function to validate fields
 function validateFields(fieldset) {
   var isValid = true;
@@ -94,3 +95,7 @@ function myFunction() {
       popup.style.visibility = "visible";
     }
   } 
+function redirectToSimulation() {
+    // Change the URL to the desired destination
+    window.location.href = "calc3.php"; 
+}
