@@ -95,7 +95,3 @@ function myFunction() {
       popup.style.visibility = "visible";
     }
   } 
-function redirectToSimulation() {
-    // Change the URL to the desired destination
-    window.location.href = "calc3.php"; 
-}

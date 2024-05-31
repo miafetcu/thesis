@@ -4,6 +4,7 @@
 <title>Solar Calculator</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script.js"></script>
+<script src="nav_bar.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -15,9 +16,9 @@
 </head>
 
 <body><!-- About Section -->
-<?php include "./base.html";
+<div id="content">Nav-Bar</div>
 
-
+<?php
 $cons = $capc = $levels = $region = "";
 $cons_error = $capc_error = "";
 
@@ -68,16 +69,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Use the header function to redirect to calc2.php with the query string
        
 
-        // Determine which button was clicked
+       // Determine which button was clicked
         if (isset($_POST['submit'])) {
              $redirect_url = "calc2.php?$query_string";
             echo "<script>window.location.href = '$redirect_url';</script>"; // Redirect to calc3.php
-        } elseif (isset($_POST['simulate'])) {
+            exit(); 
+        } 
+        elseif (isset($_POST['simulate'])) {
             $redirect_url = "calc3.php?$query_string";
             echo "<script>window.location.href = '$redirect_url';</script>"; // Redirect to calc3.php
+            exit(); 
         }
         
-        exit(); // Make sure to exit after redirection
+        // Make sure to exit after redirection
     }
 }
 
@@ -116,7 +120,7 @@ function test_input($data) {
       
             <div class="popup" onclick="togglePopup('energyBehaviorPopup')">
             <div class="info-icon"><i class="fas fa-info"></i></div> 
-        <label for="levels" class="fs-subtitle2">Your energy behavior:</label><br>
+        <label for="levels" class="fs-subtitle2">Your future energy behavior:</label><br>
         <div class="popuptext" id="energyBehaviorPopup">
             <p class="fs-subtitle2">Energy behavior refers to your actions affecting household energy usage.
             High involves conscious conservation, medium includes some efforts, while low indicates minimal attention.</p>
@@ -144,9 +148,11 @@ function test_input($data) {
         <option <?php if (isset($region) && $region=="south") echo "selected";?> value="south">South</option>
         </select><br> 
      
-      <button type="submit" name="submit" class="next action-button" >Calculate</button>
+      <button type="submit" name="submit" class="next action-button" id="submit" >Calculate</button>
       <button type="submit" name="simulate" class="next action-button" >Simulate</button>
   </fieldset>
 </form>
 </body>
 </html>
+
+

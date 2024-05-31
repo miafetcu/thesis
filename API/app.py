@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for , jsonify
 from werkzeug.utils import secure_filename
+from flask_cors import CORS, cross_origin
 from pdfminer.high_level import extract_pages
 from pdfminer.layout import LTTextLineHorizontal, LTTextBoxHorizontal
 
@@ -7,7 +8,7 @@ app = Flask(__name__)
 
 
 # Configure the upload folder and allowed extensions for uploaded files
-app.config['UPLOAD_FOLDER'] = './templates/uploads'
+app.config['UPLOAD_FOLDER'] = './api/upload'
 app.config['ALLOWED_EXTENSIONS'] = {'pdf'}
 
 def allowed_file(filename):
@@ -33,7 +34,12 @@ def extract_text_by_bbox(input_pdf_path, bboxes):
     
     return text_data
 
-@app.route('/', methods=['GET', 'POST'])
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+# @app.route('/api/mia', methods=['GET', 'POST'])
+@app.route('/api/mia', methods=['POST'])
+@cross_origin()
+
 def upload_file():
     if request.method == 'POST':
         # Check if the post request has the file part
@@ -55,7 +61,7 @@ def upload_file():
             # Bounding box coordinates for extraction
             bboxes = {
                 'cons': (419.0, 599.85, 430.676, 606.85),
-                'init': (290.0, 725.85, 317.23, 732.85),
+                'init': (187.0, 726.04, 255.427, 735.04),
                 'final': (321.0, 725.85, 348.23, 732.85),
                 'monthly_cons': (55.79, 625.13, 63.998, 631.13),
                 'price' : (467.0, 599.85, 484.507, 606.85)
@@ -65,10 +71,12 @@ def upload_file():
             extracted_data = extract_text_by_bbox(file_path, bboxes)
             
             # Render the template with extracted information
-            return render_template('/extracted_pdf.html', extracted_data=extracted_data)
-    
+            # return render_template('return.html', extracted_data=extracted_data)
+            return jsonify(extracted_data)
+        
     # Render the upload form
-    return render_template('upload_form.php')
+    # return render_template('upload.php')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8888)
+    app.run(debug=True, port=8887,host='localhost')
+

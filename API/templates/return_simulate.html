@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solar Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="/return_form.js"></script> -->
+    <script src="/nav_bar.js"></script>
+    <script src="/script.js"></script>
+    <script src="/math_calc.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style2.css"> <!-- Add the second CSS file -->
+    <style> 
+.simulator-container{
+    margin-top: 130px;
+    margin-left: 18%;
+}
+ </style>
+</head>
+<body>
+    <div id="content">Nav-Bar</div>
+    <div class="info-icon"><i class="fas fa-info"></i></div>  
+<div class="simulator-container">
+    <h1>Solar Simulator</h1>
+    <div class="popup" onclick="myFunction()">
+        <div class="info-icon"><i class="fas fa-info"></i></div>  
+        Check your maximum potential Case!
+        <div class="popuptext" id="myPopup">
+            <p><strong>Number of Panels: </strong><span id="min_panels"></span> - <span id="max_panels"></span></p>
+            <p><strong>Energy Generated:</strong> <span id="energy"></span> kWh/year</p>
+            <p><strong>Estimated Annual Savings:</strong> <span id="sav"></span> eur</p>
+            <p><strong>Investment:</strong> <span id="invest"></span> eur</p>
+        </div> 
+    </div>
+
+    <div class="simulator-container2">
+        <span>Investment Amount:</span>
+        <span id="invest1">100</span>
+        <input type="range" min="1" max="8000" value="8000" class="range-slider" id="myRange">
+
+        <span>Number of Panels:</span>
+        <span id="panels2">20</span>
+        <input type="range" min="1" max="20" value="20" class="range-slider2" id="myRange2">
+
+        <span>Period Life Time:</span>
+        <span id="time">25</span>
+        <input type="range" min="5" max="25" value="25" class="range-slider3" id="myRange3">
+    </div>
+
+    <div class="result-container">
+        <p><strong>Payback Period:</strong> <span id="result" class="range">0</span> years</p>
+        <p><strong>Return on Investment (ROI):</strong> <span id="result2">25</span>%</p>
+        <p><strong>Price per Solar Panel:</strong> <span id="pricePerPanel"></span> eur</p>
+    </div> 
+</div>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Initial values
+    var panelsContent = document.getElementById("max_panels").innerHTML.trim();
+    var panelNumber = parseInt(panelsContent);
+
+    var panelsContent2 = document.getElementById("min_panels").innerHTML.trim();
+    var panelNumber2 = parseInt(panelsContent2);
+
+    var investContent = document.getElementById("invest").innerHTML.trim();
+    var invest = parseInt(investContent);
+
+    var anual_savContent = document.getElementById("sav").innerHTML.trim();
+    var anual_sav = parseInt(anual_savContent);
+
+    var timeContent = document.getElementById("time").innerHTML.trim();
+    var time = parseInt(timeContent);
+
+    // Set initial values
+    document.getElementById("result").textContent = (invest / anual_sav).toFixed(0); // Payback Period
+    var totalSavings = anual_sav * time;
+    var roi = (totalSavings / invest) * 100;
+    document.getElementById("result2").textContent = roi.toFixed(1); // ROI
+    document.getElementById("pricePerPanel").textContent = (invest / panelNumber).toFixed(0); // Price per Panel
+
+    // Set the max and value attributes for the range inputs
+    const rangeSlider = document.getElementById('myRange');
+    rangeSlider.max = invest*1.3;
+    rangeSlider.value = invest;
+
+    const rangeSlider2 = document.getElementById('myRange2');
+    rangeSlider2.max = panelNumber;
+    rangeSlider2.value = panelNumber2;
+
+    const rangeSlider3 = document.getElementById('myRange3');
+    rangeSlider3.max = 25;
+    rangeSlider3.value = time;
+
+    // Update the displayed values initially
+    document.getElementById('invest1').innerText = invest;
+    document.getElementById('panels2').innerText = panelNumber2;
+
+    // Add event listeners for the range inputs
+    rangeSlider.addEventListener('input', updateCalculations);
+    rangeSlider2.addEventListener('input', updateCalculations);
+    rangeSlider3.addEventListener('input', updateCalculations);
+
+    // Function to update calculations and display
+    function updateCalculations() {
+        var invest = parseInt(rangeSlider.value);
+        var panelNumber = parseInt(rangeSlider2.value);
+        var time = parseInt(rangeSlider3.value);
+        var anual_sav = 200; // This should be dynamically calculated based on other factors
+
+        document.getElementById('invest1').textContent = invest;
+        document.getElementById('panels2').textContent = panelNumber;
+        document.getElementById('time').textContent = time;
+
+        var totalSavings = anual_sav * time;
+        var roi = (totalSavings / invest) * 100;
+
+        document.getElementById("result").textContent = (invest / anual_sav).toFixed(0); // Payback Period
+        document.getElementById("result2").textContent = roi.toFixed(1); // ROI
+        document.getElementById("pricePerPanel").textContent = (invest / panelNumber).toFixed(0); // Price per Panel
+    }
+});
+
+
+</script>
+
+</body>
+</html>

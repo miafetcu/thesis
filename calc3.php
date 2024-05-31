@@ -4,6 +4,7 @@
     <title>Solar Calculator</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    <script src="/nav_bar.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -12,27 +13,25 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style2.css"> <!-- Add the second CSS file -->
     <style>
-         body {
-            padding: 20px;
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        } 
+        .simulator-container{
+    margin-top: 130px;
+    margin-left: 18%;
+}
     </style>
 </head>
 <body>
-    <?php include "./base.html" ?>
+<div id="content">Nav-Bar</div>
 
     <?php
     // Retrieve session data
     session_start();
     $capacity = $_SESSION['capc'];
+    
 
-    $panels = ceil($capacity / 2.1);
-    $energy = $panels * 0.5;
+    $maxpanels = ceil($capacity / 2.1);
+    $energy = $maxpanels * 0.5;
     $savings = $energy * 2.5 * 1000/19;
-    $investment = $panels * 500;
+    $investment = $maxpanels * 400;
     $time=25;
     ?>
 
@@ -40,15 +39,13 @@
         <h1>Solar Simulator</h1>
         <div class="popup" onclick="myFunction()"> <div class="info-icon"><i class="fas fa-info"></i></div>  Check your maximum potential Case!
         <div class="popuptext" id="myPopup">
-            <p><strong>Number of Panels:</strong> <?php echo $panels; ?></p>
+            <p><strong>Number of Panels:</strong><?php echo $maxpanels;?>-<?php echo $maxpanels; ?></p>
             <p><strong>Energy Generated:</strong> <?php echo $energy; ?> kWh/year</p>
             <p><strong>Estimated Annual Savings:</strong> <span id="sav"><?php echo number_format($savings, 2); ?></span> eur</p>
             <p><strong>Investment:</strong>  <?php echo number_format($investment, 2); ?> eur</p>
             </div>
     
         </div>
-        
-    
          <!-- Range Slide -->
         <div class="simulator-container2">
             <span>Investment Amount:</span>
@@ -56,8 +53,8 @@
             <input type="range" min="1" max="<?php echo $investment; ?>" value="<?php echo $investment; ?>" class="range-slider" id="myRange">
             
             <span>Number of Panels:</span>
-            <span id="selectedValue2"><?php echo $panels; ?></span>
-            <input type="range" min="1" max="<?php echo $panels; ?>" value="<?php echo $panels; ?>" class="range-slider2" id="myRange2">
+            <span id="selectedValue2"><?php echo $maxpanels; ?></span>
+            <input type="range" min="1" max="<?php echo $maxpanels; ?>" value="<?php echo $maxpanels; ?>" class="range-slider2" id="myRange2">
 
             <span>Period Life Time:</span>
             <span id="selectedValue3"><?php echo $time; ?> years</span>

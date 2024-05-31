@@ -23,7 +23,7 @@
     <p class="w3-large">Our purpose</p>
     <p class="features">We are developers of an energy sollution created for the Republic of Moldova. <br> 
     We aspire to generate real, lasting positive insights on nature and society.  </p>
-    <p><a href="purpose.php" class="w3-button2 w3-black" style="margin-top:60px">Find more</a></p>
+    <p><a href="purpose.html" class="w3-button2 w3-black" style="margin-top:60px">Find more</a></p>
   </div>
   <div class="w3-quarter">
     <i class="fa fa-globe w3-margin-bottom w3-jumbo"></i>

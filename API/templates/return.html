@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solar Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/return_form.js"></script>
+    <script src="/nav_bar.js"></script>
+    <script src="/math_calc.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style2.css"> <!-- Add the second CSS file -->
+</head>
+<body>
+ <div id="content">Nav-Bar</div>
+
+    
+    <form id="msform">
+  
+    <fieldset>
+    <h1 class="big-title">Your Power Calculator </h1>
+    <p>Actionable Insights</p>
+        <div class="result-container">
+            <div class="result-box">
+                <p>Annual Energy Generation: <br><span style="font-size: 40px;" id="energy"></span> <br>kWh/year</p>
+            </div>
+            <div class="result-box">
+                <p>Number of Solar Panels Needed:<br><span style="font-size: 40px;" id="min_panels"></span></p>
+                <p>Maximum Number of Solar Panels:<br><span style="font-size: 40px;" id="max_panels"></span></p>
+            </div>
+</div>
+
+<p>Financial Insights</p>
+<div class="result-container">
+            <div class="result-box">
+                <p>Total Annual Savings:<br><span style="font-size: 40px;" id="sav"></span><br> EUR</p>
+            </div>
+
+            <div class="result-box">
+                <p>Investment Cost: <br><span style="font-size: 40px;" id="invest"></span><br>EUR</p>
+            </div>
+
+        </div>
+        
+        <button class="next action-button" id="redirectBtn">Go to Simulation</button>
+  
+    </fieldset>
+</form>
+</body>
+</html>
+<script>
+
+    // //go to simulation 
+    // Function to get URL parameters
+    function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        
+        return Object.fromEntries(params.entries());
+    }
+    
+    // Function to construct new URL with parameters
+    function constructNewUrl(params) {
+        const baseUrl = 'return_simulate.html';
+        const queryParams = new URLSearchParams(params).toString();
+        return `${baseUrl}?${queryParams}`;
+    }
+    
+    document.getElementById('redirectBtn').addEventListener('click', () => {
+        const params = getUrlParams();
+        const newUrl = constructNewUrl(params);
+        window.location.href = newUrl;
+    });
+                
+            </script>
+
+  
