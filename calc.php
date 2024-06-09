@@ -122,8 +122,8 @@ function test_input($data) {
             <div class="info-icon"><i class="fas fa-info"></i></div> 
         <label for="levels" class="fs-subtitle2">Your future energy behavior:</label><br>
         <div class="popuptext" id="energyBehaviorPopup">
-            <p class="fs-subtitle2">Energy behavior refers to your actions affecting household energy usage.
-            High involves conscious conservation, medium includes some efforts, while low indicates minimal attention.</p>
+            <p class="fs-subtitle2">Energy behavior refers to your actions affecting household energy usage, as demonstrated by the number of appliances used, the time, its efficiency and the future plans.<br>
+            This info will be used for determinating the ration for covering the consumption.</p>
         </div>
         </div><br>
 

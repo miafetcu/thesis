@@ -60,6 +60,7 @@ transform: translate(-50%, -50%);
    
     font-size: 35px;
     font-weight: bold;
+    margin-bottom: 3%;
 }
 .w3-bar .w3-button {
   padding: 16px;
@@ -647,6 +648,7 @@ transform: translate(-50%, -50%);
   .w3-center .w3-bar {
       display: inline-block;
       width: auto
+    
   }
 
   .w3-bar .w3-bar-item {
@@ -786,7 +788,9 @@ transform: translate(-50%, -50%);
 
       .w3-col.m4,
       .w3-third {
-          width: 33.33333%
+          width: 32%;
+         
+          
       }
 
       .w3-col.m5 {
@@ -820,7 +824,7 @@ transform: translate(-50%, -50%);
 
       .w3-col.m8,
       .w3-twothird {
-          width: 66.66666%
+          width: 65%
       }
 
       .w3-col.m9,
@@ -902,8 +906,8 @@ transform: translate(-50%, -50%);
 
   .w3-content,
   .w3-auto {
-      margin-left: auto;
-      margin-right: auto
+      margin-left: 10%; 
+      
   }
 
   .w3-content {
@@ -1449,12 +1453,13 @@ transform: translate(-50%, -50%);
       font-weight: bold;
       
       
+      
   }
   .w3-jumbo2 {
     font-size: 64px !important;
     font-weight: bold;
-    padding-bottom: 4%;
-    padding-top: 4%;
+    
+    
     
 }
   .w3-purpose{
@@ -1568,9 +1573,9 @@ transform: translate(-50%, -50%);
 
   .w3-padding-32 {
       /* padding-top: 32px !important; */
-      /* padding-bottom: 32px !important; */
+      padding-bottom: 32px !important;
       font-size: 20px;
-      margin-right: 60px;
+     
     
   }
 
@@ -2112,6 +2117,9 @@ transform: translate(-50%, -50%);
   }
   .features{
     text-align: justify;
+  
+    margin-top: 10%;
+    height: 250px;
 }
 .w3-button2 {
     display: block;
@@ -2143,8 +2151,5 @@ transform: translate(-50%, -50%);
     border-radius: 8px;
     margin-right: 20px; /* Add spacing between sections */
     text-align: center;
-}
-
-.section:last-child {
-    margin-right: 0; /* Remove right margin from the last section */
+    
 }

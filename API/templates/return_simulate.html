@@ -84,14 +84,17 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("result2").textContent = roi.toFixed(1); // ROI
     document.getElementById("pricePerPanel").textContent = (invest / panelNumber).toFixed(0); // Price per Panel
 
+    const panel_price = 400;
     // Set the max and value attributes for the range inputs
     const rangeSlider = document.getElementById('myRange');
-    rangeSlider.max = invest*1.3;
+    rangeSlider.max = panelNumber*panel_price*1.3;
     rangeSlider.value = invest;
+    rangeSlider.min = invest/2;
 
     const rangeSlider2 = document.getElementById('myRange2');
     rangeSlider2.max = panelNumber;
     rangeSlider2.value = panelNumber2;
+    rangeSlider2.min =Math.ceil(panelNumber2/2);
 
     const rangeSlider3 = document.getElementById('myRange3');
     rangeSlider3.max = 25;

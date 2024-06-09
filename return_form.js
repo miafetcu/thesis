@@ -21,12 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(result);
                 var capcValue = document.getElementById('capc').value;
                 
-                
-            
                 result.capcValue = capcValue;
-                
-              
-             
                     const queryParams = new URLSearchParams(result);
                     console.log(queryParams);
                     const queryString = queryParams.toString();

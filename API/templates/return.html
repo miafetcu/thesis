@@ -3,6 +3,8 @@
 <head>
     <title>Solar Calculator</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="/script.js"></script>
     <script src="/return_form.js"></script>
     <script src="/nav_bar.js"></script>
     <script src="/math_calc.js"></script>
@@ -11,7 +13,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/style2.css"> <!-- Add the second CSS file -->
+    <link rel="stylesheet" href="/style2.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"><!-- Add the second CSS file -->
 </head>
 <body>
  <div id="content">Nav-Bar</div>
@@ -32,7 +35,13 @@
             </div>
 </div>
 
-<p>Financial Insights</p>
+<div class="popup" onclick="myFunction()">
+    <div class="info-icon"><i class="fas fa-info"></i></div>  
+    Financial Insights
+    <div class="popuptext" id="myPopup">
+        <p>Financial Insights for the base case of the needed solar panels to cover the consumption</p>
+    </div>
+</div>
 <div class="result-container">
             <div class="result-box">
                 <p>Total Annual Savings:<br><span style="font-size: 40px;" id="sav"></span><br> EUR</p>

@@ -15,7 +15,7 @@ const invest_space = document.getElementById('invest');
 // const invest_space2 = document.getElementById('invest1');
 // const panels_space2 = document.getElementById('panels2');
 
-const solarCapacityFactor = 0.14;
+const solarCapacityFactor = 0.2;
 
 const Solar_Hours = [4, 4.5, 5];
 // const Behaviour = [1.2, 1.1, 1];
@@ -38,30 +38,26 @@ const reg_Sud = ["leova","cimislia","causeni","stefan voda","comrat","cantemir",
 dataInit = data.init.toLowerCase();
 console.log(data.init);
 
-
-let energy_math = 0;
-if (reg_North.some(region => dataInit.includes(region)) ) {
-    energy_math = data.capcValue * solarCapacityFactor * Solar_Hours[0] * 365;
-} else if (reg_Center.some(region => dataInit.includes(region)) ){
-    energy_math = data.capcValue * solarCapacityFactor * Solar_Hours[1] * 365;
-} else if (reg_Sud.some(region => dataInit.includes(region)) ){ 
-    energy_math = data.capcValue * solarCapacityFactor * Solar_Hours[2] * 365;
-} else {
-    energy_math = data.capcValue * solarCapacityFactor * Solar_Hours[1] * 365;
-}
-energy_math = Math.ceil(energy_math);
-
-energy_math = Math.ceil(energy_math);
-console.log(energy_math);
-let consumation= data.monthly_cons*12;
-
 let min_panels_math = 0;
+let consumation= data.monthly_cons*12;
 
 min_panels_math = consumation * behaviour/energy_panel;
 
-min_panels_math = Math.ceil(min_panels_math)
+min_panels_math = Math.ceil(min_panels_math);
 
 const area_panel = 2.1;
+let energy_math = 0;
+if (reg_North.some(region => dataInit.includes(region)) ) {
+    energy_math =  min_panels_math*area_panel * solarCapacityFactor * Solar_Hours[0] * 365;
+} else if (reg_Center.some(region => dataInit.includes(region)) ){
+    energy_math = min_panels_math*area_panel * solarCapacityFactor * Solar_Hours[1] * 365;
+} else if (reg_Sud.some(region => dataInit.includes(region)) ){ 
+    energy_math = min_panels_math*area_panel* solarCapacityFactor * Solar_Hours[2] * 365;
+} else {
+    energy_math = min_panels_math*area_panel * solarCapacityFactor * Solar_Hours[1] * 365;
+}
+energy_math = Math.ceil(energy_math);
+console.log(energy_math);
 max_panels_math = data.capcValue/area_panel;
 max_panels_math = Math.ceil(max_panels_math)
 
