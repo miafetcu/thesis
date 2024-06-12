@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Solar Calculator</title>
-<!-- <script src="script.js"></script> -->
-<script src="/nav_bar.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- Navbar (sit on top) -->
-<div id="content">Nav-Bar</div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-    <?php
+<?php
         include 'conn.php';
         $conn = OpenCon();
 
@@ -85,6 +68,21 @@
         CloseCon($conn);
     ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Solar Calculator</title>
+<script src="javascript/nav_bar.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div id="content">Nav-Bar</div>
 <!-- Contact Section -->
 <div class="w3-container w3-light-grey" style="padding:100px 16px" id="contact">
     <h3 class="w3-center">CONTACT</h3>
@@ -108,7 +106,7 @@
         </p>
       </form>
       <!-- Image of location/map -->
-      <img src="logor.png" class="w3-image-logo">
+      <img src="assets/logor.png" class="w3-image-logo">
     </div>
 </div>
 

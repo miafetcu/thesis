@@ -3,16 +3,16 @@
 <head>
 <title>Solar Calculator</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="script.js"></script>
-<script src="nav_bar.js"></script>
+<script src="javascript/nav_bar.js"></script>
+<script src="javascript/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="style/style.css">
+<link rel="stylesheet" href="style/style2.css">
 </head>
 
 <body><!-- About Section -->
@@ -66,20 +66,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'region' => $region
         ]);
 
-        // Use the header function to redirect to calc2.php with the query string
-       
-
        // Determine which button was clicked
         if (isset($_POST['submit'])) {
-             $redirect_url = "calc2.php?$query_string";
-            echo "<script>window.location.href = '$redirect_url';</script>"; // Redirect to calc3.php
+             $redirect_url = "MCalculator.php?$query_string";
+            echo "<script>window.location.href = '$redirect_url';</script>"; 
             exit(); 
         } 
-        elseif (isset($_POST['simulate'])) {
-            $redirect_url = "calc3.php?$query_string";
-            echo "<script>window.location.href = '$redirect_url';</script>"; // Redirect to calc3.php
-            exit(); 
-        }
+        // elseif (isset($_POST['simulate'])) {
+        //     $redirect_url = "MSimulator.php?$query_string";
+        //     echo "<script>window.location.href = '$redirect_url';</script>"; 
+        //     exit(); 
+        // }
         
         // Make sure to exit after redirection
     }
@@ -149,7 +146,7 @@ function test_input($data) {
         </select><br> 
      
       <button type="submit" name="submit" class="next action-button" id="submit" >Calculate</button>
-      <button type="submit" name="simulate" class="next action-button" >Simulate</button>
+      <!-- <button type="submit" name="simulate" class="next action-button" >Simulate</button> -->
   </fieldset>
 </form>
 </body>

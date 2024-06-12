@@ -20,13 +20,13 @@ const solarCapacityFactor = 0.2;
 const Solar_Hours = [4, 4.5, 5];
 // const Behaviour = [1.2, 1.1, 1];
 if (data.monthly_cons >= 800 ) {
-    behaviour = 1.2;
+    behaviour = 1.25;
 } else if (data.monthly_cons >=600 && data.monthly_cons<800) {
    behaviour = 1.2;
 } else if (data.monthly_cons >=300 && data.monthly_cons<600){
-    behaviour = 1; 
+    behaviour = 1.1; 
 }else{
-    behaviour = 0.9;
+    behaviour = 1;
 }
 console.log(behaviour);
 const energy_panel = 500;
@@ -35,6 +35,7 @@ const reg_North = ["briceni","ocnita","edinet","riscani","donduseni","soroca","d
 const reg_Center = ["soldanesti","rezina","telenesti","ungheni","calarasi","nisporeni","orhei","straseni","hancesti","ialoveni","chisinau","anenii noi","criuleni","dubasari"];
 const reg_Sud = ["leova","cimislia","causeni","stefan voda","comrat","cantemir","cahul","taraclia"]
 
+console.log(data.init);
 dataInit = data.init.toLowerCase();
 console.log(data.init);
 

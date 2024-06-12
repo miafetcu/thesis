@@ -65,7 +65,8 @@ function validateFields(fieldset) {
     $(document).ready(function() {
         $('#investmentRange').on('input', function() {
             var investmentValue = $(this).val();
-            $('#investmentValue').text(investmentValue * 500); // Each panel costs $500
+            const pricepanel =400;
+            $('#investmentValue').text(investmentValue * pricepanel); // Each panel costs $400
         });
 
         $('#panelsValue').text($('#investmentRange').val()); // Initial panels value
@@ -82,6 +83,7 @@ function validateFields(fieldset) {
         });
     });
 
+//info icon 
 function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");

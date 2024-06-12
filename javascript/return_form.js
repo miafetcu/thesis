@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const queryParams = new URLSearchParams(result);
                     console.log(queryParams);
                     const queryString = queryParams.toString();
-                    const url = `return.html?${queryString}`;
+                    const url = `ACalculator.html?${queryString}`;
                 
                 // Redirect to another HTML page to display the result
                 window.location.href = url;
