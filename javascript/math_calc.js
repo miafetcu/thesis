@@ -69,7 +69,9 @@ savings_math = Math.ceil(savings_math);
 
 const price_panel =400;
 
-let invest_math = max_panels_math*price_panel;
+let invest_math = min_panels_math*price_panel;
+console.log(min_panels_math);
+console.log(invest_math);
 energy_space.innerHTML = `${energy_math}`;
 min_panels_space.innerHTML = `${min_panels_math}`;
 max_panels_space.innerHTML = `${max_panels_math}`;

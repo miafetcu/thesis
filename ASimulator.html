@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var anual_savContent = document.getElementById("sav").innerHTML.trim();
     var anual_sav = parseInt(anual_savContent);
+    console.log(anual_sav);
 
     var timeContent = document.getElementById("time").innerHTML.trim();
     var time = parseInt(timeContent);
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Set initial values
     document.getElementById("result").textContent = (invest / anual_sav).toFixed(0); // Payback Period
     var totalSavings = anual_sav * time;
+    console.log(totalSavings);
     var roi = (totalSavings / invest) * 100;
     document.getElementById("result2").textContent = roi.toFixed(1); // ROI
     document.getElementById("pricePerPanel").textContent = (invest / panelNumber).toFixed(0); // Price per Panel
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var invest = parseInt(rangeSlider.value);
         var panelNumber = parseInt(rangeSlider2.value);
         var time = parseInt(rangeSlider3.value);
-        var anual_sav = 200; // This should be dynamically calculated based on other factors
+        
 
         document.getElementById('invest1').textContent = invest;
         document.getElementById('panels2').textContent = panelNumber;

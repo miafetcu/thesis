@@ -108,7 +108,7 @@
                 <p>Actionable Insights</p>
                 <div class="result-container">
                     <div class="result-box">
-                        <p>Annual Energy Generation:<br><span style="font-size: 40px;" id="annualEnergy"></span> kWh/year</p>
+                        <p>Annual Energy Generation:<br><span style="font-size: 40px;" id="annualEnergy"></span><br>kWh/year</p>
                     </div>
                     <div class="result-box">
                         <p>Number of Solar Panels Needed:<br><span style="font-size: 40px;" id="numberOfPanels"></span></p>

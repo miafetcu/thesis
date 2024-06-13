@@ -110,9 +110,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var roi = (totalSavings  / investment) * 100;
 
         // Update displayed values
-        document.getElementById("result").textContent = (investment / annualSavings).toFixed(1); // Payback Period
-        document.getElementById("result2").textContent = roi.toFixed(1); // ROI
-        document.getElementById("pricePerPanel").textContent = (investment / numberOfPanels).toFixed(2); // Price per Panel
+        document.getElementById("result").textContent = Math.ceil(investment / annualSavings); // Payback Period
+        document.getElementById("result2").textContent = Math.ceil(roi) ;// ROI
+        document.getElementById("pricePerPanel").textContent = Math.ceil(investment / numberOfPanels); // Price per Panel
     }
 
     // Update calculations when sliders value changes
