@@ -98,7 +98,7 @@
         <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
         <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
         <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-        <p><input type="file" name="pdf_file" accept=".pdf"></p>
+        <p class="w3-large">Additionally, sent us bills for improvement.<br> </p><input type="file" name="pdf_file" accept=".pdf">
         <p>
           <button class="w3-button w3-black" type="submit" style="display: block; margin-left: auto; margin-right: auto; width: 20%;">
             <i class="fa fa-paper-plane"></i> SEND MESSAGE
